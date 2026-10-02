@@ -1,0 +1,51 @@
+{
+  "name": "trading-agent-backend",
+  "version": "1.0.0",
+  "description": "Autonomous AI trading agent backend",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "migrate": "tsx src/db/migrations.ts",
+    "backtest": "tsx src/backtest/runner.ts",
+    "task": "tsx src/tasks/runner.ts",
+    "task:morning": "tsx src/tasks/runner.ts morning-scan",
+    "task:strategy": "tsx src/tasks/runner.ts strategy-eval",
+    "task:orders": "tsx src/tasks/runner.ts place-orders",
+    "task:midday": "tsx src/tasks/runner.ts midday-review",
+    "task:evening": "tsx src/tasks/runner.ts evening-scan",
+    "task:journal": "tsx src/tasks/runner.ts journal-entry",
+    "bot:start": "npx pm2 start ecosystem.config.js",
+    "bot:stop": "npx pm2 stop trading-bot",
+    "bot:restart": "npx pm2 restart trading-bot",
+    "bot:logs": "npx pm2 logs trading-bot",
+    "bot:status": "npx pm2 status",
+    "bot:save": "npx pm2 save"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.16",
+    "pg": "^8.13.1",
+    "socket.io": "^4.8.1",
+    "technicalindicators": "^3.1.0",
+    "winston": "^3.17.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.7",
+    "@types/node-cron": "^3.0.11",
+    "@types/nodemailer": "^6.4.17",
+    "@types/pg": "^8.11.10",
+    "pm2": "^7.0.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

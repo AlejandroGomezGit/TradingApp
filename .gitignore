@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+.angular/
+
+# Logs (pueden contener datos sensibles de la cuenta)
+*.log
+logs/
+
+# Datos locales generados por el bot (decisiones de IA, diario de trading)
+backend/data/
+journal/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
